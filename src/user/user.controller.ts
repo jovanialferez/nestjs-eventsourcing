@@ -1,10 +1,10 @@
 import { Controller, Post } from '@nestjs/common';
-import { EventPublisher } from '@nestjs/cqrs';
+import { EventStorePublisher } from 'src/event-store';
 import { User } from './user.model';
 
 @Controller('user')
 export class UserController {
-  constructor(private publisher: EventPublisher) {}
+  constructor(private publisher: EventStorePublisher) {}
 
   @Post('ping')
   async ping() {
